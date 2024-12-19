@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class TestotomasyonuStepdefinitions {
@@ -27,9 +28,9 @@ public class TestotomasyonuStepdefinitions {
     public void arama_sonucunda_urun_bulunabildigini_test_eder() {
         String unExpectedAramaSonucu = ConfigReader.getProperty("toUnexpectedSonuc");
         String actualAramaSonucu = testotomasyonuPage.aramaSonucuElementi
-                                                        .getText();
+                .getText();
 
-        Assertions.assertNotEquals(unExpectedAramaSonucu,actualAramaSonucu);
+        Assertions.assertNotEquals(unExpectedAramaSonucu, actualAramaSonucu);
     }
 
     @Then("sayfayi kapatir")
@@ -38,4 +39,35 @@ public class TestotomasyonuStepdefinitions {
     }
 
 
+    @When("arama kutusuna dress yazip aratir")
+    public void aramaKutusunaDressYazipAratir() {
+        testotomasyonuPage.aramaKutusu.sendKeys("dress" + Keys.ENTER);
+    }
+
+    @When("arama kutusuna java yazip aratir")
+    public void aramaKutusunaJavaYazipAratir() {
+        testotomasyonuPage.aramaKutusu.sendKeys("java" + Keys.ENTER);
+
+    }
+
+    @Then("arama sonucunda urun bulunamadigini test eder")
+    public void aramaSonucundaUrunBulunamadiginiTestEder() {
+        String ExpectedAramaSonucu = ConfigReader.getProperty("toUnexpectedSonuc");
+        String actualAramaSonucu = testotomasyonuPage.aramaSonucuElementi
+                .getText();
+
+        Assertions.assertEquals(ExpectedAramaSonucu, actualAramaSonucu);
+    }
+
+    @When("arama kutusuna {string} yazip aratir")
+    public void aramaKutusunaYazipAratir(String aranacakKelime) {
+        testotomasyonuPage.aramaKutusu.sendKeys(aranacakKelime + Keys.ENTER);
+
+    }
+
+    @And("senkronizasyon icin {int} saniye bekler")
+    public void senkronizasyonIcinSaniyeBekler(int beklenecekSaniye) {
+
+        ReusableMethods.bekle(beklenecekSaniye);
+    }
 }
