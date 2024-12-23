@@ -13,6 +13,7 @@ public class TestotomasyonuStepdefinitions {
 
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
 
+
     @Given("kullanici testotomasyonu anasayfaya gider")
     public void kullanici_testotomasyonu_anasayfaya_gider() {
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
@@ -21,7 +22,6 @@ public class TestotomasyonuStepdefinitions {
     @When("arama kutusuna phone yazip aratir")
     public void arama_kutusuna_phone_yazip_aratir() {
         testotomasyonuPage.aramaKutusu.sendKeys("phone" + Keys.ENTER);
-
     }
 
     @Then("arama sonucunda urun bulunabildigini test eder")
@@ -36,8 +36,8 @@ public class TestotomasyonuStepdefinitions {
     @Then("sayfayi kapatir")
     public void sayfayi_kapatir() {
         Driver.quitDriver();
-    }
 
+    }
 
     @When("arama kutusuna dress yazip aratir")
     public void aramaKutusunaDressYazipAratir() {
@@ -46,23 +46,26 @@ public class TestotomasyonuStepdefinitions {
 
     @When("arama kutusuna java yazip aratir")
     public void aramaKutusunaJavaYazipAratir() {
-        testotomasyonuPage.aramaKutusu.sendKeys("java" + Keys.ENTER);
 
+        testotomasyonuPage.aramaKutusu.sendKeys("java" + Keys.ENTER);
     }
+
 
     @Then("arama sonucunda urun bulunamadigini test eder")
     public void aramaSonucundaUrunBulunamadiginiTestEder() {
-        String ExpectedAramaSonucu = ConfigReader.getProperty("toUnexpectedSonuc");
+
+        String expectedAramaSonucu = ConfigReader.getProperty("toUnexpectedSonuc");
         String actualAramaSonucu = testotomasyonuPage.aramaSonucuElementi
                 .getText();
 
-        Assertions.assertEquals(ExpectedAramaSonucu, actualAramaSonucu);
+        Assertions.assertEquals(expectedAramaSonucu, actualAramaSonucu);
+
     }
 
     @When("arama kutusuna {string} yazip aratir")
     public void aramaKutusunaYazipAratir(String aranacakKelime) {
-        testotomasyonuPage.aramaKutusu.sendKeys(aranacakKelime + Keys.ENTER);
 
+        testotomasyonuPage.aramaKutusu.sendKeys(aranacakKelime + Keys.ENTER);
     }
 
     @And("senkronizasyon icin {int} saniye bekler")
@@ -75,12 +78,15 @@ public class TestotomasyonuStepdefinitions {
     public void ilkUrunuTiklar() {
 
         testotomasyonuPage.ilkUrunElementi.click();
+
     }
 
     @Then("acilan sayfada urun isminde case sensitive olmadan {string} bulundugunu test eder")
     public void acilanSayfadaUrunIsmindeCaseSensitiveOlmadanBulundugunuTestEder(String arananKelime) {
 
-        String actualUrunIsmi = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi.getText().toLowerCase();
+        String actualUrunIsmi = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
+                .getText()
+                .toLowerCase();
 
         Assertions.assertTrue(actualUrunIsmi.contains(arananKelime));
     }
@@ -96,8 +102,8 @@ public class TestotomasyonuStepdefinitions {
     public void acilanSayfadaUrunIsmindeCaseSensitiveOlmadanTestDataDosyasindakiBelirlenenKelimeBulundugunuTestEder() {
 
         String actualUrunIsmi = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
-                                                    .getText()
-                                                    .toLowerCase();
+                .getText()
+                .toLowerCase();
 
         String expectedIsimIcerik = ConfigReader.getProperty("toAranacakKelime");
 
@@ -106,19 +112,58 @@ public class TestotomasyonuStepdefinitions {
     }
 
     @Given("kullanici test data dosyasinda verilen {string} anasayfaya gider")
-    public void kullaniciTestDataDosyasindaVerilenAnasayfayaGider(String configIstenenUrl) {
+    public void kullanici_test_data_dosyasinda_verilen_anasayfaya_gider(String configIstenenUrl) {
+
         Driver.getDriver().get(ConfigReader.getProperty(configIstenenUrl));
 
     }
 
     @Then("url'in test data dosyasinda verilen {string} ile ayni oldugunu test eder")
-    public void urlInTestDataDosyasindaVerilenIleAyniOldugunuTestEder(String configIstenenUrl) {
+    public void url_in_test_data_dosyasinda_verilen_ile_ayni_oldugunu_test_eder(String configIstenenUrl) {
 
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = ConfigReader.getProperty(configIstenenUrl);
 
         Assertions.assertEquals(expectedUrl, actualUrl);
 
+    }
 
+    @Then("account butonuna basar")
+    public void account_butonuna_basar() {
+        testotomasyonuPage.accountLinki.click();
+    }
+
+    @Then("email olarak {string} girer")
+    public void email_olarak_girer(String configIstenenEmail) {
+        testotomasyonuPage.emailKutusu.sendKeys(ConfigReader.getProperty(configIstenenEmail));
+    }
+
+    @Then("password olarak {string} girer")
+    public void password_olarak_girer(String configIstenenPassword) {
+        testotomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty(configIstenenPassword));
+    }
+
+    @Then("signIn butonuna basar")
+    public void sign_in_butonuna_basar() {
+        testotomasyonuPage.loginButonu.click();
+    }
+
+    @Then("basarili giris yapilabildigini test eder")
+    public void basarili_giris_yapilabildigini_test_eder() {
+
+        Assertions.assertTrue(testotomasyonuPage.logoutButonu.isDisplayed());
+
+    }
+
+    @Then("logout butonuna basar")
+    public void logoutButonunaBasar() {
+        testotomasyonuPage.logoutButonu.click();
+
+    }
+
+    @And("sisteme giris yapamadigini test eder")
+    public void sistemeGirisYapamadiginiTestEder() {
+
+        Assertions.assertTrue(testotomasyonuPage.emailKutusu.isDisplayed());
     }
 }

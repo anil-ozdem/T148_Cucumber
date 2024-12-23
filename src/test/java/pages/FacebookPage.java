@@ -20,6 +20,15 @@ public class FacebookPage {
     @FindBy(xpath = "//*[@name='login']")
     public WebElement loginButonu;
 
+    @FindBy(xpath = "//*[@*='open-registration-form-button']")
+    public WebElement yeniKayitOlusturButonu;
+
+    @FindBy(name = "firstname")
+    public WebElement kayitOlusturmaFirstnameKutusu;
+
+    @FindBy(name = "websubmit")
+    public WebElement signUpButtonu;
+
 
 
 
