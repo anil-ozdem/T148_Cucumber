@@ -1,7 +1,8 @@
 
+  @smoke
   Feature: US1008 Kullanici yanlis bilgilerle giris yapamaz
 
-    Scenario: TC12 kullainici yanlis password ile giris yapamamali
+    Scenario: TC12 kullanici yanlis password ile giris yapamamali
 
       Given kullanici testotomasyonu anasayfaya gider
       Then account butonuna basar
@@ -12,7 +13,7 @@
       And senkronizasyon icin 3 saniye bekler
       And sayfayi kapatir
 
-    Scenario: TC13 kullainici yanlis email ile giris yapamamali
+    Scenario: TC13 kullanici yanlis email ile giris yapamamali
 
       Given kullanici testotomasyonu anasayfaya gider
       Then account butonuna basar
@@ -23,7 +24,7 @@
       And senkronizasyon icin 3 saniye bekler
       And sayfayi kapatir
 
-    Scenario: TC14 kullainici yanlis email ve yanlis password ile giris yapamamali
+    Scenario: TC14 kullanici yanlis email ve yanlis password ile giris yapamamali
 
       Given kullanici testotomasyonu anasayfaya gider
       Then account butonuna basar

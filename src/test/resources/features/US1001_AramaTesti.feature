@@ -10,6 +10,7 @@ Feature: US1001 Testotomasyonu phone arama testi
     Then arama sonucunda urun bulunabildigini test eder
     And sayfayi kapatir
 
+  @smoke @E2E1 @regression
   Scenario: TC02 Kullanici testotomasyonu sitesinde dress bulabilmeli
 
   Given kullanici testotomasyonu anasayfaya gider

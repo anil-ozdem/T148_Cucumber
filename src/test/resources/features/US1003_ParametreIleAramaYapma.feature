@@ -1,6 +1,7 @@
 
 Feature: US1003 kullanici parametre olarak istedigi kelimeyi girip aratir
 
+  @smoke
   Scenario: TC07 parametre ile urun aratilabilmeli
 
     Given kullanici testotomasyonu anasayfaya gider
