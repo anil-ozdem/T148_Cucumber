@@ -1,7 +1,6 @@
 
   Feature: TC16 kullanici alisveris yapar
 
-    @wip
     Scenario: TC17 Kullanici istedigi urunu sepete ekledigini test eder
 
       Given kullanici test data dosyasinda verilen "sauceUrl" anasayfaya gider
