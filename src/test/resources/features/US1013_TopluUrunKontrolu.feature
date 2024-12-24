@@ -1,6 +1,6 @@
 
   Feature: TC19 kullanici belirlenen miktarda urun bulabilmeli
-    @wip
+
    Scenario Outline: TC19 Kullanici arattigi urunlerin
                      belirlenen miktar veya daha fazla bulunabildigini test edebilmeli
 
@@ -14,6 +14,6 @@
      |aranacakKelime|belirlenenMiktar|
      |phone         |3               |
      |dress         |8               |
-     |java          |0               |
+     |java          |3               |
      |samsung       |2               |
      |baby          |1               |
