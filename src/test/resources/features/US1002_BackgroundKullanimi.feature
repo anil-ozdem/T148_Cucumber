@@ -9,13 +9,13 @@
       When arama kutusuna phone yazip aratir
       Then arama sonucunda urun bulunabildigini test eder
 
-
+      @parelel1
     Scenario: TC05 Kullanici testotomasyonu sitesinde dress bulabilmeli
 
       When arama kutusuna dress yazip aratir
       Then arama sonucunda urun bulunabildigini test eder
 
-
+    @parelel2
     Scenario: TC06 Kullanici testotomasyonu sitesinde java bulamamali
 
       When arama kutusuna java yazip aratir

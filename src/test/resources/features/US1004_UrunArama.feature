@@ -1,5 +1,6 @@
 Feature: US1004 kullanici istedigi urunu aratir ve bulabildigini tst eder
 
+  @parelel1
   Scenario: TC08 Kullanici istedigi urunu aratip,
             bulundugunu test edebilmeli
 
