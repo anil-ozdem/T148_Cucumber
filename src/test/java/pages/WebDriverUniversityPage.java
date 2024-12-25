@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class WebDriverUniversityPage {
 
-    public WebDriverUniversityPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+    public WebDriverUniversityPage(){
+        PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(xpath = "//*[.='LOGIN PORTAL']")

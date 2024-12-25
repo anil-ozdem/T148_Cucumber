@@ -11,13 +11,13 @@ public class FacebookPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "//input[ @id='email']")
     public WebElement emailKutusu;
 
     @FindBy(id = "pass")
     public WebElement passwordKutusu;
 
-    @FindBy(xpath = "//*[@name='login']")
+    @FindBy(xpath = "//*[ @name='login']")
     public WebElement loginButonu;
 
     @FindBy(xpath = "(//span[.='Allow all cookies'])[4]")
@@ -31,9 +31,6 @@ public class FacebookPage {
 
     @FindBy(name = "websubmit")
     public WebElement signUpButtonu;
-
-
-
 
 
 }

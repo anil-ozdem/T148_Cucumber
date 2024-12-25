@@ -1,8 +1,8 @@
-Feature: US1004 kullanici istedigi urunu aratir ve bulabildigini tst eder
+Feature: US1004 kullanici istedigi urunu aratir ve bulabildigini test eder
 
-  @parelel1
+  @paralel1
   Scenario: TC08 Kullanici istedigi urunu aratip,
-            bulundugunu test edebilmeli
+  bulundugunu test edebilmeli
 
     Given kullanici testotomasyonu anasayfaya gider
     When arama kutusuna "dress" yazip aratir

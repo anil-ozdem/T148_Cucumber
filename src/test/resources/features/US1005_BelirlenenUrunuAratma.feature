@@ -1,8 +1,8 @@
 Feature: US1005 Kullanici belirlenen kelimeyi aratir
 
-  @parelel2
+  @paralel2
   Scenario: TC09 Kullanici belirlenen kelimeyi aratir
-            ve bulunabildigini test eder
+  ve bulunabildigini test eder
 
     Given kullanici testotomasyonu anasayfaya gider
     When arama kutusuna test data dosyasindaki belirlenen kelimeyi yazip aratir

@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class EditorPage {
 
-    public EditorPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+    public EditorPage(){
+        PageFactory.initElements(Driver.getDriver(),this);
     }
 
 
@@ -25,6 +25,6 @@ public class EditorPage {
     public WebElement searchKutusu;
 
     @FindBy(xpath = "(//td[@class='sorting_1'])[1]")
-    public WebElement ilkIsimElementi;
+    public WebElement ilkIsimElementi ;
 
 }
